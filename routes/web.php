@@ -16,4 +16,4 @@ use App\Http\Controllers\TodolistController;
 
 
 Route::resource('todolist', 'TodolistController');
-Route::get('complete/{id}', [TodolistController::class, 'completed'])->name('complete');
+Route::get('todolist/complete/{id}', [TodolistController::class, 'completed'])->name('complete');

@@ -96,9 +96,12 @@ class TodolistController extends Controller
         return redirect(route('todolist.index'))->with(['success' => 'ToDoList is Deleted!!!!']);
     }
 
-    public function completed($id)
+    public function completed(Request $request, $id)
     {
-        Todolist::where('id', $id)->Carbon::now();
+        $data = Todolist::where('id', $id)->update([
+            'completed_at' =>date('Y-m-d H:i:s')
+        ]);
+        
         return redirect(route('todolist.index'))->with(['success' => 'ToDoList is Completed!!!']);
     }
 }
